@@ -1,0 +1,5 @@
+pydantic==2.5.1
+numpy==1.24.3
+pydantic_numpy==4.0.1
+pandas==2.1.3
+scikit-learn==1.3.2
