@@ -94,23 +94,23 @@ class TemporalGraph:
 
         self.edge_list.sort(key=lambda x: x.timestamp)
 
-    def get_static_graph(self, l: float, r: float) -> "StaticGraph":
+    def get_static_graph(self, left_border: float, right_border: float) -> "StaticGraph":
         """
         Creates a static subgraph from the temporal graph.
 
         This subgraph is a slice of the temporal graph, determined by the
-        provided left (l) and right (r) indices as fractions of the total number
+        provided left and right indices as fractions of the total number
         of edges.
 
         Args:
-            l (float): Left index as a fraction of total edges.
-            r (float): Right index as a fraction of total edges.
+            left_border (float): Left index as a fraction of total edges.
+            right_border (float): Right index as a fraction of total edges.
 
         Returns:
             StaticGraph: A static graph containing the edges within the specified range.
         """
-        left_index = int(l * len(self.edge_list))
-        right_index = int(r * len(self.edge_list))
+        left_index = int(left_border * len(self.edge_list))
+        right_index = int(right_border * len(self.edge_list))
         sg = StaticGraph()
         for i in range(left_index, right_index):
             sg.add_edge(self.edge_list[i])
@@ -311,7 +311,8 @@ class StaticGraph:
         self.largest_connected_component = StaticGraph()
         self.__find_largest_connected_component(used, vertice)
 
-    def __floyd_warshall_algorithm(self, graph: "StaticGraph") -> dict[int, dict[int, int]]:
+    @staticmethod
+    def __floyd_warshall_algorithm(graph: "StaticGraph") -> dict[int, dict[int, int]]:
         """
         Implement the Floyd-Warshall algorithm to find the shortest paths in a graph.
 
@@ -447,7 +448,8 @@ class StaticGraph:
         """
         Calculate the average clustering coefficient for the largest connected component in the graph.
 
-        The clustering coefficient for a vertex quantifies how close its neighbors are to being a complete graph (clique).
+        The clustering coefficient for a vertex quantifies
+        how close its neighbors are to being a complete graph (clique).
 
         Returns:
             float: The average clustering coefficient for the largest connected component.
@@ -474,7 +476,8 @@ class StaticGraph:
         Assortativity measures the similarity of connections in the graph with respect to the node degree.
         It indicates whether high-degree nodes tend to connect with other high-degree nodes (assortative mixing)
         or low-degree nodes (disassortative mixing).
-        A positive assortativity coefficient indicates a preference for high-degree nodes to attach to other high-degree nodes,
+        A positive assortativity coefficient indicates a preference
+        for high-degree nodes to attach to other high-degree nodes,
         while a negative coefficient indicates the opposite.
 
         Returns:
@@ -572,15 +575,16 @@ class SelectApproach:
                 max_node = max(v, i)
 
                 edge_ts = graph.adjacency_dict_of_dicts[min_node][max_node]
-                for i in edge_ts:
+                for j in edge_ts:
                     start_node = Node(number=min_node)
                     end_node = Node(number=max_node)
-                    timestamp = i
+                    timestamp = j
                     sample_graph.add_edge(Edge(start_node=start_node, end_node=end_node, timestamp=timestamp))
 
         return sample_graph
 
-    def random_selected_vertices(self, graph: StaticGraph) -> StaticGraph:
+    @staticmethod
+    def random_selected_vertices(graph: StaticGraph) -> StaticGraph:
         """
         Perform random vertex sampling on the graph.
 
