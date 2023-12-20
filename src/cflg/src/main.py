@@ -1,7 +1,7 @@
 import pandas as pd
 
-from cflg.src.CreateTables import graph_features_auc_score_tables_from_df
-from cflg.src.FormFeaturesDF import ft_for_edges_of_st_gr_frm_data_path
+from .CreateTables import graph_features_auc_score_tables_from_df
+from .FormFeaturesDF import ft_for_edges_of_st_gr_frm_data_path
 
 
 def graph_features_auc_score_tables(datasets_info: pd.DataFrame, cls_model=None, verbose=False):

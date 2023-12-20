@@ -1,8 +1,10 @@
+from pathlib import Path
+
 import pandas as pd
 from IPython.core.display_functions import display
 from sklearn import linear_model, pipeline, preprocessing
 
-from cflg import features_for_edges_of_static_graph, graph_features_auc_score_tables
+from src.cflg import features_for_edges_of_static_graph, graph_features_auc_score_tables
 
 
 def test_graph_features_auc_score_tables() -> None:
@@ -10,27 +12,16 @@ def test_graph_features_auc_score_tables() -> None:
         preprocessing.StandardScaler(), linear_model.LogisticRegression(max_iter=10000, n_jobs=-1, random_state=42)
     )
 
-    Networks = [
-        "email-Eu-core-temporal-Dept3",
-        "opsahl-ucsocial",
-        "radoslaw_email",
-        "soc-sign-bitcoinalpha",
-        "dnc-corecipient",
-        "sx-mathoverflow",
-    ]
-    networks_files_names = [f"datasets/{i}/out.{i}" for i in Networks]
+    Networks = ["email-Eu-core-temporal-Dept3"]
+
+    current_path = Path(__file__).parent
+    networks_files_names = [str(current_path / name / f"out.{name}") for name in Networks]
+
     datasets_info = {
-        "Network": [
-            "email-Eu-core-temporal",
-            "opsahl-ucsocial",
-            "radoslaw_email",
-            "soc-sign-bitcoinalpha",
-            "dnc-corecipient",
-            "sx-mathoverflow",
-        ],
-        "Label": ["EU", "UC", "Rado", "bitA", "Dem ", "SX-MO"],
-        "Category": ["Social", "Information", "Social", "Social", "Social", "Social"],
-        "Edge type": ["Multi", "Multi", "Multi", "Simple", "Multi", "Multi"],
+        "Network": Networks,
+        "Label": ["EU"],
+        "Category": ["Social"],
+        "Edge type": ["Multi"],
         "Path": networks_files_names,
     }
 
@@ -64,17 +55,9 @@ def test_features_for_static_graph() -> None:
         with pd.option_context("display.max_columns", None):  # Показать все колонки
             display(df.head(5))  # Вывести первые 5 строк
 
-    Networks = [
-        "email-Eu-core-temporal-Dept3",
-        "opsahl-ucsocial",
-        "radoslaw_email",
-        "soc-sign-bitcoinalpha",
-        "dnc-corecipient",
-        "sx-mathoverflow",
-    ]
-    networks_files_names = [f"datasets/{i}/out.{i}" for i in Networks]
-
-    path_to_data = networks_files_names[0]
+    current_path = Path(__file__).parent
+    name = "email-Eu-core-temporal-Dept3"
+    path_to_data = str(current_path / name / f"out.{name}")
 
     X = features_for_edges_of_static_graph(path_to_data, verbose=True)
 

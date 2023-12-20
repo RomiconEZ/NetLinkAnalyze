@@ -2,8 +2,8 @@ import gc
 
 import pandas as pd
 
-from cflg.src.Base import TemporalGraph
-from cflg.src.FeatureFormation import feature_for_absent_edges
+from .Base import TemporalGraph
+from .FeatureFormation import feature_for_absent_edges
 
 
 def add_label_column(ft_bld_edge_df: pd.DataFrame, pred_adj_dict: dict[int, dict[int, [int]]]):

@@ -1,7 +1,7 @@
 from sklearn import metrics, model_selection
 
-from cflg.src.Base import TemporalGraph
-from cflg.src.FormFeaturesDF import cnt_ft_wth_lbls_for_edges_of_st_gr
+from .Base import TemporalGraph
+from .FormFeaturesDF import cnt_ft_wth_lbls_for_edges_of_st_gr
 
 
 def train_test_split_temporal_graph(edge_list: list, split_ratio: float):

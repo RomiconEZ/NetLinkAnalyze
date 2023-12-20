@@ -2,8 +2,8 @@ import random
 
 import pandas as pd
 
-from cflg.src.Base import SelectApproach, TemporalGraph
-from cflg.src.ModelPerformance import get_performance
+from .Base import SelectApproach, TemporalGraph
+from .ModelPerformance import get_performance
 
 network_rus_name = "Сеть"
 cat_graph_rus_name = "Категория"
