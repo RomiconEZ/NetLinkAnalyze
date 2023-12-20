@@ -106,6 +106,4 @@ virtualenv==20.25.0
 wcwidth==0.2.12
 y-py==0.6.2
 ypy-websocket==0.8.4
-
-cflg~=0.0.1.dev0
 setuptools~=65.5.0
