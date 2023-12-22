@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project overview &mdash; CFLG  documentation</title>
+  <title>Project overview &mdash; NetLinkAnalyze  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,13 +17,11 @@
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
-        <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
-        <script>mermaid.initialize({startOnLoad:true});</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Code documentation" href="code_documentation.html" />
-    <link rel="prev" title="roman - CFLG" href="index.html" /> 
+    <link rel="prev" title="NetLinkAnalyze" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -35,7 +33,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            CFLG
+            NetLinkAnalyze
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,9 +45,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Project overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ru">RU:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eng">ENG:</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="code_documentation.html">Code documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="howtos.html">How to..?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos.html">How to use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 
@@ -59,7 +61,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CFLG</a>
+          <a href="index.html">NetLinkAnalyze</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -79,28 +81,44 @@
              
   <section id="project-overview">
 <h1>Project overview<a class="headerlink" href="#project-overview" title="Permalink to this heading"></a></h1>
-<p>This is introduction to the project.</p>
-<p>Write here what this project is about, what problems does it solves on high level.</p>
-<p>You can also use <a class="reference external" href="https://mermaid.js.org/">mermaid</a> - read more on <a class="reference external" href="https://github.com/mgaitan/sphinxcontrib-mermaid">extension page</a>:</p>
-<div class="mermaid">
-              graph TD;
-      cflg --&gt; B;
-      cflg --&gt; C;
-      B --&gt; D;
-        </div></section>
+<section id="ru">
+<h2>RU:<a class="headerlink" href="#ru" title="Permalink to this heading"></a></h2>
+<p>Программа «NetLinkAnalyze» предназначена для вычисления признакового описания связей в крупномасштабных сетях для дальнейшего обучения классификатора и предсказания появления новых связей в последующие моменты времени, а также для расчёта характеристик статических графов, включающий количество вершин и ребер, плотность, компоненты слабой связности, радиус, диаметр сети и коэффициент ассортативности. Обеспечивает получение результатов в удобном для анализа формате - LaTeX таблицы с эффективным использованием памяти вычислительного устройства для работы с крупномасштабными сетями.</p>
+<p>К преимуществам данной программы (по отношению к известным) относятся:</p>
+<ul class="simple">
+<li><p>Использование эффективной структуры данных для хранения и работы с большими сетями;</p></li>
+<li><p>Построение LaTeX таблиц для представления результатов работы функций;</p></li>
+<li><p>Низкий порог входа для начала использования;</p></li>
+<li><p>Эффективное использование памяти с помощью принудительного удаления неиспользуемых объектов;</p></li>
+<li><p>Архитектура программы позволяет легко добавлять новые функции или модули для расширения её функциональности.</p></li>
+</ul>
+</section>
+<section id="eng">
+<h2>ENG:<a class="headerlink" href="#eng" title="Permalink to this heading"></a></h2>
+<p>The «NetLinkAnalyze» program is designed to calculate the characteristic description of connections in large-scale networks for further training the classifier and predicting the appearance of new connections at subsequent points in time, as well as to calculate the characteristics of static graphs, including the number of vertices and edges, density, components of weak connectivity, radius, diameter of the network and the coefficient of assortativity. It provides results in a format convenient for analysis - LaTeX tables with efficient use of the memory of a computing device for working with large-scale networks.</p>
+<p>The advantages of this program (in relation to the known ones) include:</p>
+<ul class="simple">
+<li><p>Using an efficient data structure for storing and working with large networks;</p></li>
+<li><p>Building LaTeX tables to represent the results of functions;</p></li>
+<li><p>Low entry threshold to start using;</p></li>
+<li><p>Efficient use of memory by forcibly deleting unused objects;</p></li>
+<li><p>The architecture of the program makes it easy to add new functions or modules to expand its functionality.</p></li>
+</ul>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="roman - CFLG" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="NetLinkAnalyze" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="code_documentation.html" class="btn btn-neutral float-right" title="Code documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, roman.</p>
+    <p>&#169; Copyright 2023, Roman Neronov.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

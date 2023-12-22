@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to..? &mdash; CFLG  documentation</title>
+  <title>How to use &mdash; NetLinkAnalyze  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,8 +20,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Setup developer environment" href="howtos/setup_dev_env.html" />
-    <link rel="prev" title="CFLG code documentation" href="api/cflg.html" /> 
+    <link rel="next" title="Licenses" href="licenses.html" />
+    <link rel="prev" title="cflg code documentation" href="api/cflg.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -33,7 +33,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            CFLG
+            NetLinkAnalyze
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,8 +47,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="project_overview.html">Project overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_documentation.html">Code documentation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to..?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="howtos/setup_dev_env.html">Setup developer environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
@@ -60,7 +60,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CFLG</a>
+          <a href="index.html">NetLinkAnalyze</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -68,7 +68,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">How to..?</li>
+      <li class="breadcrumb-item active">How to use</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/howtos.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,29 +78,83 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="how-to">
-<h1>How to..?<a class="headerlink" href="#how-to" title="Permalink to this heading"></a></h1>
-<p>Here is a list of step by step guides for the project.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">How to:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="howtos/setup_dev_env.html">Setup developer environment</a></li>
-</ul>
+  <section id="how-to-use">
+<h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h1>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<p>(Data: <a class="reference external" href="https://github.com/RomiconEZ/CFLG/tree/main/tests/email-Eu-core-temporal-Dept3">https://github.com/RomiconEZ/CFLG/tree/main/tests/email-Eu-core-temporal-Dept3</a>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display_functions</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">cflg</span> <span class="kn">import</span> <span class="n">graph_features_auc_score_tables</span><span class="p">,</span> <span class="n">features_for_edges_of_static_graph</span>
+
+<span class="k">def</span> <span class="nf">test_graph_features_auc_score_tables</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">cls_model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">make_pipeline</span><span class="p">(</span>
+        <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">Networks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;email-Eu-core-temporal-Dept3&quot;</span><span class="p">]</span>
+
+    <span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+    <span class="n">networks_files_names</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">current_path</span> <span class="o">/</span> <span class="n">name</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;out.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">Networks</span><span class="p">]</span>
+
+    <span class="n">datasets_info</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Network&quot;</span><span class="p">:</span> <span class="n">Networks</span><span class="p">,</span>
+        <span class="s2">&quot;Label&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;EU&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;Category&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Social&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;Edge type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Multi&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;Path&quot;</span><span class="p">:</span> <span class="n">networks_files_names</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">datasets_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datasets_info</span><span class="p">)</span>
+    <span class="n">datasets_info</span> <span class="o">=</span> <span class="n">datasets_info</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="p">(</span>
+        <span class="n">latex_feature_network_table_1</span><span class="p">,</span>
+        <span class="n">latex_feature_network_table_2</span><span class="p">,</span>
+        <span class="n">latex_feature_network_table_3</span><span class="p">,</span>
+        <span class="n">latex_feature_network_table_4</span><span class="p">,</span>
+        <span class="n">latex_auc_table</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">graph_features_auc_score_tables</span><span class="p">(</span><span class="n">datasets_info</span><span class="p">,</span> <span class="n">cls_model</span><span class="o">=</span><span class="n">cls_model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">latex_feature_network_table_1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">latex_feature_network_table_2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">latex_feature_network_table_3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">latex_feature_network_table_4</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">latex_auc_table</span><span class="p">)</span>
+    <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">test_features_for_static_graph</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">display_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>  <span class="c1"># Показать все колонки</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Вывести первые 5 строк</span>
+
+    <span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;email-Eu-core-temporal-Dept3&quot;</span>
+    <span class="n">path_to_data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_path</span> <span class="o">/</span> <span class="n">name</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;out.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">features_for_edges_of_static_graph</span><span class="p">(</span><span class="n">path_to_data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</pre></div>
 </div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="api/cflg.html" class="btn btn-neutral float-left" title="CFLG code documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="howtos/setup_dev_env.html" class="btn btn-neutral float-right" title="Setup developer environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api/cflg.html" class="btn btn-neutral float-left" title="cflg code documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="licenses.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, roman.</p>
+    <p>&#169; Copyright 2023, Roman Neronov.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

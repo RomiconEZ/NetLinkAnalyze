@@ -1,16 +1,25 @@
 # Code documentation
 
-```{hint}
+[//]: # (```{hint})
 
-  To add your code use sphinx tool in project root directory:
+[//]: # ()
+[//]: # (  To add your code use sphinx tool in project root directory:)
 
-    $ sphinx-apidoc -o docs/api/ src/cflg
+[//]: # ()
+[//]: # (    $ sphinx-apidoc -o docs/api/ src/cflg)
 
-  and add reference from any page which is reachable from the index page.
+[//]: # ()
+[//]: # (  and add reference from any page which is reachable from the index page.)
+
+[//]: # (```)
+
+## Установка python package
+```bash
+    pip install NetLinkAnalyze
 ```
-
+## Импортирование основных функций
 ```python
-    import cflg
+    from cflg import graph_features_auc_score_tables, features_for_edges_of_static_graph
 ```
 
 ```{toctree}

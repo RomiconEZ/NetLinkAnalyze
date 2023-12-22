@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code documentation &mdash; CFLG  documentation</title>
+  <title>Code documentation &mdash; NetLinkAnalyze  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="cflg modules" href="api/modules.html" />
+    <link rel="next" title="NetLinkAnalyze modules" href="api/modules.html" />
     <link rel="prev" title="Project overview" href="project_overview.html" /> 
 </head>
 
@@ -33,7 +33,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            CFLG
+            NetLinkAnalyze
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,10 +47,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="project_overview.html">Project overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Code documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/modules.html">cflg modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-package">Установка python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Импортирование основных функций</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/modules.html">NetLinkAnalyze modules</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="howtos.html">How to..?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howtos.html">How to use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 
@@ -60,7 +64,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CFLG</a>
+          <a href="index.html">NetLinkAnalyze</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -80,21 +84,21 @@
              
   <section id="code-documentation">
 <h1>Code documentation<a class="headerlink" href="#code-documentation" title="Permalink to this heading"></a></h1>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>To add your code use sphinx tool in project root directory:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sphinx-apidoc -o docs/api/ src/cflg
+<section id="python-package">
+<h2>Установка python package<a class="headerlink" href="#python-package" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>NetLinkAnalyze
 </pre></div>
 </div>
-<p>and add reference from any page which is reachable from the index page.</p>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">cflg</span>
+</section>
+<section id="id1">
+<h2>Импортирование основных функций<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">cflg</span> <span class="kn">import</span> <span class="n">graph_features_auc_score_tables</span><span class="p">,</span> <span class="n">features_for_edges_of_static_graph</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api/modules.html">cflg modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/cflg.html">CFLG code documentation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">NetLinkAnalyze modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/cflg.html">cflg code documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/cflg.html#cflg.Edge"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/cflg.html#cflg.Edge.start_node"><code class="docutils literal notranslate"><span class="pre">Edge.start_node</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/cflg.html#cflg.Edge.end_node"><code class="docutils literal notranslate"><span class="pre">Edge.end_node</span></code></a></li>
@@ -159,19 +163,20 @@
 </ul>
 </div>
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="project_overview.html" class="btn btn-neutral float-left" title="Project overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="api/modules.html" class="btn btn-neutral float-right" title="cflg modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api/modules.html" class="btn btn-neutral float-right" title="NetLinkAnalyze modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, roman.</p>
+    <p>&#169; Copyright 2023, Roman Neronov.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
