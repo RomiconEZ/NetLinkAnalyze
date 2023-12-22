@@ -21,7 +21,7 @@ The advantages of this program (in relation to the known ones) include:
 * The architecture of the program makes it easy to add new functions or modules to expand its functionality.
 
 ## Documentation/Документация:
-https://romiconez.github.io/CFLG/
+https://romiconez.github.io/NetLinkAnalyze/
 
 ## How to use:
 
