@@ -1,4 +1,4 @@
-CFLG code documentation
+cflg code documentation
 ==============================================================
 
 .. automodule:: cflg

@@ -9,9 +9,9 @@ sys.path.insert(0, os.path.abspath('../src'))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'CFLG'
-copyright = '2023, roman'
-author = 'deepsense.ai'
+project = 'NetLinkAnalyze'
+copyright = '2023, Roman Neronov'
+author = 'Roman Neronov'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

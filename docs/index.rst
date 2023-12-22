@@ -2,10 +2,10 @@
    You can adapt this file completely to your preferences, but it should at least
    contain the root `toctree` directive.
 
-roman - CFLG
+NetLinkAnalyze
 ====================================================================================================================
 
-Documentation for `cflg` python package.
+Documentation for `NetLinkAnalyze` python package.
 
 
 .. toctree::
