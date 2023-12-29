@@ -129,24 +129,5 @@ For prediction it is necessary first to construct a feature description for each
 
 A. Construction of feature vectors to predict the appearance of edges in a graph
 
-The paper proposes several options for constructing a feature description, and then compares the quality of the resulting predictions. For this implementation, a set of III
-
 Б. Binary classification.
 
-Logistic regression algorithm is used to train the model. To evaluate the quality of the built model the metric AUC (Area Under the Receiver Operating Curve) is used - the area under the ROC AUC curve.
-
-ROC AUC - the curve is constructed based on the ratio of the proportion of objects correctly classified with some property (TPR true positive rate) and the proportion of objects without the property, but misclassified as having this property (FPR false positive rate), at different levels of the decision threshold.
-
-TPR - the fraction of edges that appeared in the column 𝑦(𝑢,𝑣) = 1 and which the classifier marked as having appeared in the column.
-
-FPR - the fraction of edges that did not appear in the column, but were marked as appearing.
-
-## Parameters for splitting the edges of a temporary network into a feature generation part and an occurrence prediction part
-
-Based on 2/3 of the time graph, we build an indicative description of the edges that are missing in this part, 
-then we look at 1/3 of the graph whether an edge has appeared or not, if so, then the label is 1, otherwise 0.
-
-## Dividing the sample into training and test
-
-2/3 parts of the graph from the previous paragraph are divided in the ratio of 75 to 25 into training and test, respectively, 
-this partition generates a partition in 1/3 of the graph
