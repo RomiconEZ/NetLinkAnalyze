@@ -39,12 +39,12 @@ https://romiconez.github.io/NetLinkAnalyze/
         cls_model = pipeline.make_pipeline(
             preprocessing.StandardScaler(), linear_model.LogisticRegression(max_iter=10000, n_jobs=-1, random_state=42)
         )
-    
+
         Networks = ["email-Eu-core-temporal-Dept3"]
-    
+
         current_path = Path(__file__).parent
         networks_files_names = [str(current_path / name / f"out.{name}") for name in Networks]
-    
+
         datasets_info = {
             "Network": Networks,
             "Label": ["EU"],
@@ -52,10 +52,10 @@ https://romiconez.github.io/NetLinkAnalyze/
             "Edge type": ["Multi"],
             "Path": networks_files_names,
         }
-    
+
         datasets_info = pd.DataFrame(datasets_info)
         datasets_info = datasets_info.iloc[0:1]
-        
+
         (
             latex_feature_network_table_1,
             latex_feature_network_table_2,
@@ -63,7 +63,7 @@ https://romiconez.github.io/NetLinkAnalyze/
             latex_feature_network_table_4,
             latex_auc_table,
         ) = graph_features_auc_score_tables(datasets_info, cls_model=cls_model, verbose=True)
-       
+
         print(latex_feature_network_table_1)
         print(latex_feature_network_table_2)
         print(latex_feature_network_table_3)
@@ -76,23 +76,23 @@ https://romiconez.github.io/NetLinkAnalyze/
         def display_dataframe(df):
             with pd.option_context("display.max_columns", None):  # Показать все колонки
                 display(df.head(5))  # Вывести первые 5 строк
-    
+
         current_path = Path(__file__).parent
         name = "email-Eu-core-temporal-Dept3"
         path_to_data = str(current_path / name / f"out.{name}")
-    
+
         X = features_for_edges_of_static_graph(path_to_data, verbose=True)
-    
+
         return
 
 ## Feature calculation
 First, we computed for each edge 3 weights from its timestamp.
-Then for each node we take the edges adjacent to it, that is, we get 3 lists of weights of adjacent edges 
-(so the edge has 3 weights and the lists contain weights calculated using one formula), 
-then we apply one of 7 functions to the resulting list: quantiles, sum , average. 3 lists, 7 aggregation functions -> 21 numbers. 
+Then for each node we take the edges adjacent to it, that is, we get 3 lists of weights of adjacent edges
+(so the edge has 3 weights and the lists contain weights calculated using one formula),
+then we apply one of 7 functions to the resulting list: quantiles, sum , average. 3 lists, 7 aggregation functions -> 21 numbers.
 These 21 numbers are signs of node activity (because we took edges adjacent to a certain node)
-Thus, each node has 21 features. Now you need to define a feature description for an edge, an edge connects 2 vertices, 
-2 vertices have a feature description, then we combine the features of these two vertices using 4 functions, 
+Thus, each node has 21 features. Now you need to define a feature description for an edge, an edge connects 2 vertices,
+2 vertices have a feature description, then we combine the features of these two vertices using 4 functions,
 that is, each feature of the first vertex with each feature of the second vertex, i.e. 21 * 4 = 84
 
 ## Properties of networks (for static graphs)
@@ -125,9 +125,15 @@ Lu - number of edges between neighbors
 The case when in the network the vertices of small degree are connected to the vertices of large degree more often corresponds to the negative values of the coefficient 𝑟 < 0.
 
 ## Predicting the appearance of edges in a graph
-For prediction it is necessary first to construct a feature description for each potential edge (vector/set of features) 𝑋(𝑢,𝑣) , and the answer 𝑦(𝑢,𝑣) , which takes the value 𝑦(𝑢,𝑣) = 1 if the edge appears in the graph, and 𝑦(𝑢,𝑣) = 0 otherwise. 
+For prediction it is necessary first to construct a feature description for each potential edge (vector/set of features) 𝑋(𝑢,𝑣) , and the answer 𝑦(𝑢,𝑣) , which takes the value 𝑦(𝑢,𝑣) = 1 if the edge appears in the graph, and 𝑦(𝑢,𝑣) = 0 otherwise.
 
 A. Construction of feature vectors to predict the appearance of edges in a graph
 
 Б. Binary classification.
+
+## License
+
+This project is licensed under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license. See the LICENSE file for details.
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
